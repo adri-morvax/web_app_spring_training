@@ -10,12 +10,12 @@ import java.util.UUID;
 
 @Component
 public class ApplicationIdentifierFiltrer implements Filter {
-    public String uuid = UUID.randomUUID().toString();
+    public final String uuid = UUID.randomUUID().toString();
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
         HttpServletResponse res = (HttpServletResponse) response;
-        res.setHeader("InstanceId",uuid);
+        res.setHeader("InstanceId",this.uuid);
 
         chain.doFilter(request, response);
 
