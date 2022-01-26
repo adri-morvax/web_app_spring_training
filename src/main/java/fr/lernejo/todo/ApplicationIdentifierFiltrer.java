@@ -15,7 +15,7 @@ public class ApplicationIdentifierFiltrer implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
         HttpServletResponse res = (HttpServletResponse) response;
-        res.setHeader("InstanceId",this.uuid);
+        res.setHeader("Instance-Id",this.uuid);
 
         chain.doFilter(request, response);
 
